@@ -5,7 +5,7 @@
 <h1>About page </h1>
 
 {% if user.is_authenticated %} 
-    <p>Hello, you are a current account holder.</p>
+    <p>Hello, {{user.email}}, you are a current account holder.</p>
 {% else %}
     <p>Hello, you should sign up and verify an account!</p>
 {% endif %}
