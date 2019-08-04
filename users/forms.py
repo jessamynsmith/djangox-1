@@ -20,6 +20,7 @@ class CustomUserCreationForm(UserCreationForm):
         )
         #for field_name, field in self.fields.items():
         #    layout.append(Field(field_name, placeholder=field.label))
+
         helper.form_show_labels = False
 
     class Meta(UserCreationForm.Meta):
@@ -28,6 +29,7 @@ class CustomUserCreationForm(UserCreationForm):
 
 class CustomUserChangeForm(UserChangeForm):
 
-    class Meta:
+    class Meta(UserChangeForm):
         model = CustomUser
-        fields = ('email', 'username',)
+        fields = ('username', 'email')
+
