@@ -1,16 +1,10 @@
 {% extends '_base.html' %}
 {% load static %}
 
+{% block title %}Home page{% endblock title %}
+
 {% block content %}
-
 <h1>Home page</h1>
-
-{% if user.is_authenticated %} 
-    <p>Hello, {{user.email}}, you are a current account holder.</p>
-{% else %}
-    <p>Hello, you should sign up and verify an account!</p>
-{% endif %}
-
 <img src="{% static 'images/falconx.png' %}" class="img-fluid" alt="FalconX launch"/>
-
 {% endblock content %}
+

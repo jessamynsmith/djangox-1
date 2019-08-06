@@ -1,14 +1,7 @@
 {% extends '_base.html' %}
 
+{% block title %}About page{% endblock %}
+
 {% block content %}
-
-<h1>About page </h1>
-
-{% if user.is_authenticated %} 
-    <p>Hello, {{user.email}}, you are a current account holder.</p>
-{% else %}
-    <p>Hello, you should sign up and verify an account!</p>
-{% endif %}
-
+<h1>About page</h1>
 {% endblock content %}
-
