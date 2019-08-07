@@ -6,12 +6,19 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = ('email', 'username',)
+        fields = ('email',)
 
     def __init__(self, *args, **kwargs):
-        super(UserCreationForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.fields['password1'].required = False
-        self.fields['password2'].required = False
+        #self.fields['password1'].widget = forms.HiddenInput()
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        instance.set_unusable_password()
+        if commit:
+            instance.save()
+        return instance
 
 
 class CustomUserChangeForm(UserChangeForm):
